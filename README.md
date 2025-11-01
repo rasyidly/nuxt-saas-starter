@@ -1,4 +1,4 @@
-## CekStatus — Nuxt 4 Starter (Multi-Org, Auth, Drizzle)
+## Nuxt Saas Boilerplate — Nuxt 4 Starter (Multi-Org, Auth, Drizzle)
 
 A concise, production-ready Nuxt 4 boilerplate for SaaS/internal apps that need authentication, multi-organization tenancy, MySQL with Drizzle ORM, email templates, and local file uploads. Opinionated, minimal, and reusable.
 
