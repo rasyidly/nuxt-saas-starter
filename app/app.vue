@@ -24,8 +24,8 @@ useHead({
 useSeoMeta({
     title,
     description,
-    ogImage: '/og-image.jpg',
-    twitterImage: '/og-image.jpg',
+    ogImage: '/og-image.png',
+    twitterImage: '/og-image.png',
     ogTitle: title,
     ogDescription: description
 })
