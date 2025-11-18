@@ -37,7 +37,6 @@
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^1.10.0",
-		"@tailwindcss/typography": "^0.5.19",
 		"drizzle-kit": "^0.31.7",
 		"eslint": "9.39.1",
 		"nuxt-file-storage": "^0.3.0",

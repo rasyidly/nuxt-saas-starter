@@ -69,6 +69,12 @@ export default defineAppConfig({
                 th: 'first:rounded-s-md last:rounded-e-md',
                 separator: 'hidden'
             }
+        },
+        empty: {
+            slots: {
+                header: 'max-w-xl',
+                body: 'max-w-xl'
+            }
         }
     }
 })
