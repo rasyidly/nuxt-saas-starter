@@ -1,56 +1,52 @@
 <script lang="ts" setup>
-import type { ButtonProps } from '@nuxt/ui'
+import type { ButtonProps, ModalProps } from '@nuxt/ui'
 
 const props = defineProps<{
+    modal?: ModalProps
     icon?: string
     title?: string
     color?: Color
     description?: string
-    close?: ButtonProps
+    cancel?: ButtonProps
     confirm?: ButtonProps
-}>()
-
-const _emit = defineEmits<{
-    confirm: []
-    cancel: []
 }>()
 </script>
 
 <template>
-    <UModal title="Please Confirm">
+    <UModal v-bind="props.modal">
         <template #description />
         <template #body>
-            <UPageCard
-                :title="props.title || `Are you sure?`"
-                :description="props.description || `This action cannot be undone.`"
-                class="text-center py-2"
-                variant="naked"
-                :ui="{ body: 'w-full', leading: 'mx-auto' }"
-            >
-                <template #leading>
-                    <UBadge
-                        :icon="props.icon || 'i-lucide-alert-triangle'"
-                        :color="props.color || 'neutral'"
-                        variant="soft"
-                        size="xl"
-                        class="p-3"
-                    />
-                </template>
-            </UPageCard>
+            <slot>
+                <UPageCard
+                    :title="props.title || `Are you sure?`"
+                    :description="props.description || `This action cannot be undone.`"
+                    class="text-center py-2"
+                    variant="naked"
+                    :ui="{ body: 'w-full', leading: 'mx-auto' }"
+                >
+                    <template #leading>
+                        <UBadge
+                            :icon="props.icon || 'i-lucide-alert-triangle'"
+                            :color="props.color || 'neutral'"
+                            variant="soft"
+                            size="xl"
+                            class="p-3"
+                        />
+                    </template>
+                </UPageCard>
+            </slot>
         </template>
         <template #footer="{ close }">
             <UButton
-                v-bind="props.close"
-                :variant="props.close?.variant || 'subtle'"
-                :label="props.close?.label || 'Cancel'"
+                v-bind="props.cancel"
                 block
-                @click="() => { close(); $emit('cancel') }"
+                @click.self="() => { close(); }"
             />
             <UButton
                 v-bind="props.confirm"
                 block
                 :ui="{ label: 'justify-start' }"
-                @click="() => { close(); $emit('confirm') }"
+                @click.self="() => { close(); }"
             />
         </template>
     </UModal>

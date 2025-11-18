@@ -6,9 +6,11 @@ const starGithubRepo = () => useConfirmation({
     icon: 'i-lucide-star',
     confirm: {
         label: 'Continue',
-        icon: 'i-lucide-star'
-    },
-    onConfirm: () => window.open('https://github.com/rasyidly/nuxt-saas-starter', '_blank')
+        icon: 'i-lucide-star',
+        to: 'https://github.com/rasyidly/nuxt-saas-starter',
+        target: '_blank',
+        external: true
+    }
 })
 
 useHead({

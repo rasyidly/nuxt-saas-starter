@@ -12,11 +12,13 @@ useHead({
     }
 })
 
-const title = 'CekStatus - Track your service in seconds'
-const description = 'Quickly check the status of any service order using its order number — repairs, salon visits, appliance fixes, and more.'
+const config = useRuntimeConfig()
+
+const title = `${config.public.appName} - Your SaaS Solution`
+const description = 'The best SaaS starter template for Nuxt.js, built to kickstart your next project with ease and efficiency.'
 
 useHead({
-    titleTemplate: '%s - CekStatus'
+    titleTemplate: `%s - ${config.public.appName}`
 })
 
 useSeoMeta({
