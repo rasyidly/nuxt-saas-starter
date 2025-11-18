@@ -9,14 +9,14 @@ const top: NavigationMenuItem[][] = [[
 ], [
     {
         label: 'Settings', icon: 'i-lucide-settings', defaultOpen: true, children: [
-            { label: 'Profile', icon: 'i-lucide-user', to: '/settings' },
+            { label: 'Profile', icon: 'i-lucide-user', to: '/settings', exact: true },
             { label: 'Organization', icon: 'i-lucide-building', to: '/settings/organization' }
         ]
     }
 ]]
 
 const accounts = computed<DropdownMenuItem[][]>(() => [[
-    { label: 'Profile', icon: 'i-lucide-user', to: '/profile' }
+    { label: 'Profile', icon: 'i-lucide-user', to: '/settings', exact: true }
 ], [
     { label: 'Sign Out', icon: 'i-lucide-log-out', onSelect: async () => await signOut({ redirectTo: '/auth/signin' }) }
 ]])
@@ -47,7 +47,7 @@ const groups = computed(() => [{
                     color="neutral"
                     square
                     to="/"
-                    icon="i-lucide-crown"
+                    icon="i-custom-brand"
                 />
                 <AppOrganizationSwitcher
                     :collapsed="collapsed"
@@ -71,7 +71,7 @@ const groups = computed(() => [{
                         class="w-full"
                     />
                     <UTooltip
-                        text="New submission"
+                        text="Create something"
                         :content="{ side: 'right' }"
                     >
                         <UButton

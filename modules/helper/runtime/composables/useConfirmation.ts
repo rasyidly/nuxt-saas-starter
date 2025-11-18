@@ -1,20 +1,18 @@
 import { LazyConfirmationModal } from '#components'
+import type { ButtonProps } from '@nuxt/ui'
 
 type Action = {
     onConfirm?: () => void
     onCancel?: () => void
-    confirm?: {
-        text?: string
-        color?: Color
-        icon?: string
-    }
+    close?: ButtonProps
+    confirm?: ButtonProps
     color?: Color
     icon?: string
     title?: string
     description?: string
 }
 
-export default function useConfirmation(props: Action) {
+export function useConfirmation(props: Action) {
     const overlay = useOverlay()
 
     return overlay.create(LazyConfirmationModal, {
@@ -25,6 +23,7 @@ export default function useConfirmation(props: Action) {
             title: props.title || 'Are you sure?',
             description: props.description || 'This action cannot be undone.',
             icon: props.icon || 'i-lucide-alert-triangle',
+            close: props.close,
             confirm: props.confirm
         },
         defaultOpen: true

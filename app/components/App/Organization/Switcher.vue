@@ -18,7 +18,7 @@ const tenants = computed<DropdownMenuItem[][]>(() => [
         active: org.id === organization.value?.id,
         onSelect: async () => await setActiveOrganization({ organizationId: org.id })
     })), [
-        { label: 'Create New', icon: 'i-lucide-plus', disabled: true }
+        { label: 'Create New', icon: 'i-lucide-plus', to: '/auth/organization/create' }
     ]])
 
 watch([organization], async () => {

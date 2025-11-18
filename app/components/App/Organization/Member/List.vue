@@ -36,14 +36,14 @@ const { data: members, refresh } = await useAsyncData(async () => {
 const columns: ColumnDef<Member>[] = [
     {
         accessorKey: 'user.name',
-        header: 'Name',
+        header: () => 'Name',
         cell: ({ row }) => h('div', [
             h('div', { class: 'font-medium text-default' }, row.original.user.name),
             h('div', { class: 'text-sm text-muted' }, `Joined ${useTimeAgo(row.original.createdAt).value}`)
         ])
     },
-    { accessorKey: 'user.email', header: 'Email' },
-    { accessorKey: 'role', header: 'Role', cell: ({ row }) => h('div', { class: 'flex items-center gap-2' }, row.original.role.split(',').map(role => h(UBadge, { ...useEnum(Enum.OrganizationRoles, role), variant: 'soft' }))) },
+    { accessorKey: 'user.email', header: () => 'Email' },
+    { accessorKey: 'role', header: () => 'Role', cell: ({ row }) => h('div', { class: 'flex items-center gap-2' }, row.original.role.split(',').map(role => h(UBadge, { ...useEnum(Enum.OrganizationRoles, role), variant: 'soft' }))) },
     {
         id: 'actions',
         header: '',
@@ -67,7 +67,6 @@ async function openChangeRoleModal(member: Member) {
         <UInput
             v-model="search"
             icon="i-lucide-search"
-            placeholder="Search members..."
         />
         <UTable
             v-if="members?.length"
@@ -77,6 +76,7 @@ async function openChangeRoleModal(member: Member) {
         >
             <template #actions-cell="{ row }">
                 <UButton
+                    v-if="row.original.role !== 'owner' && members?.length > 1"
                     label="Change Role"
                     size="sm"
                     variant="ghost"
@@ -84,10 +84,11 @@ async function openChangeRoleModal(member: Member) {
                 />
             </template>
         </UTable>
-        <EmptyState
+        <UEmpty
             v-else
             icon="i-lucide-users"
             title="No members found"
+            description="There are no members in this organization."
         />
     </div>
 </template>

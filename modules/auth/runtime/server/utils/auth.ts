@@ -5,6 +5,7 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { admin, twoFactor, organization } from 'better-auth/plugins'
 import { useDb } from '~~/server/utils/database'
 import { render } from '@vue-email/render'
+import { ulid } from 'ulid'
 
 export const auth = betterAuth({
     database: drizzleAdapter(useDb(), {
@@ -83,6 +84,9 @@ export const auth = betterAuth({
         process.env.NUXT_SITE_URL || 'http://localhost:3000'
     ],
     advanced: {
+        database: {
+            generateId: () => ulid()
+        },
         cookies: {
             session_token: {
                 name: 'auth_session'

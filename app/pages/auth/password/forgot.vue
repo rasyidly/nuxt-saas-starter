@@ -52,7 +52,7 @@ useHead({
     >
         <template #leading>
             <UBadge
-                icon="i-lucide-crown"
+                icon="i-custom-brand"
                 variant="soft"
                 color="neutral"
                 size="xl"

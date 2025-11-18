@@ -1,4 +1,16 @@
 <script lang="ts" setup>
+const starGithubRepo = () => useConfirmation({
+    title: 'Star GitHub Repository?',
+    description: 'You will be redirected to the GitHub repository page to give a star.',
+    color: 'neutral',
+    icon: 'i-lucide-star',
+    confirm: {
+        label: 'Continue',
+        icon: 'i-lucide-star'
+    },
+    onConfirm: () => window.open('https://github.com/rasyidly/nuxt-saas-starter', '_blank')
+})
+
 useHead({
     title: 'Overview'
 })
@@ -15,13 +27,22 @@ useHead({
                 </UDashboardNavbar>
             </template>
             <template #body>
-                <div class="grid place-items-center h-full">
-                    <EmptyState
-                        icon="i-lucide-rocket"
-                        title="Coming Soon"
-                        description="This feature is under development."
-                    />
-                </div>
+                <UEmpty
+                    icon="i-lucide-rocket"
+                    title="Coming Soon"
+                    description="This feature is under development."
+                    variant="naked"
+                    class="h-full"
+                >
+                    <template #actions>
+                        <UButton
+                            icon="i-lucide-github"
+                            label="Star Repository"
+                            variant="subtle"
+                            @click="starGithubRepo()"
+                        />
+                    </template>
+                </UEmpty>
             </template>
         </UDashboardPanel>
     </div>

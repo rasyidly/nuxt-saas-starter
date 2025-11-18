@@ -59,12 +59,13 @@ useHead({
         @submit="onSubmit"
     >
         <template #leading>
-            <UBadge
-                icon="i-lucide-crown"
-                variant="soft"
-                color="neutral"
+            <UButton
+                icon="i-custom-brand"
+                to="/"
+                variant="link"
                 size="xl"
-                class="p-4 rounded-xl mb-4"
+                :ui="{ leadingIcon: 'size-8' }"
+                class="mb-4"
             />
         </template>
         <template #password-hint>

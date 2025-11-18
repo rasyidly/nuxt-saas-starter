@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 const runtimeConfig = useRuntimeConfig()
 
+const { loggedIn, signOut } = useAuth()
+
 useHead({
     bodyAttrs: {
         class: 'bg-muted dark:bg-default/98'
@@ -19,6 +21,14 @@ useHead({
             </UPageCard>
             <div class="absolute bottom-4 text-xs text-muted">
                 <span>{{ runtimeConfig.public.appName }} &copy; 2025</span>
+                <UButton
+                    v-if="loggedIn"
+                    variant="ghost"
+                    label="Sign out"
+                    size="xs"
+                    class="ms-4"
+                    @click="signOut()"
+                />
             </div>
         </UContainer>
     </UMain>

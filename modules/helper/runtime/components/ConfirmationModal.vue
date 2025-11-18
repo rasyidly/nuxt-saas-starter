@@ -1,14 +1,13 @@
 <script lang="ts" setup>
+import type { ButtonProps } from '@nuxt/ui'
+
 const props = defineProps<{
     icon?: string
     title?: string
     color?: Color
     description?: string
-    confirm?: {
-        text?: string
-        color?: Color
-        icon?: string
-    }
+    close?: ButtonProps
+    confirm?: ButtonProps
 }>()
 
 const _emit = defineEmits<{
@@ -41,16 +40,16 @@ const _emit = defineEmits<{
         </template>
         <template #footer="{ close }">
             <UButton
-                label="Cancel"
-                variant="outline"
+                v-bind="props.close"
+                :variant="props.close?.variant || 'subtle'"
+                :label="props.close?.label || 'Cancel'"
                 block
                 @click="() => { close(); $emit('cancel') }"
             />
             <UButton
-                :icon="props.confirm?.icon || undefined"
-                :label="props.confirm?.text || 'Confirm'"
-                :color="props.confirm?.color || props.color || 'neutral'"
+                v-bind="props.confirm"
                 block
+                :ui="{ label: 'justify-start' }"
                 @click="() => { close(); $emit('confirm') }"
             />
         </template>

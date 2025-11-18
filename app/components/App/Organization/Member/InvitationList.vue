@@ -77,9 +77,10 @@ async function cancelInvitation(invitation: Invitation) {
             />
         </template>
     </UTable>
-    <EmptyState
+    <UEmpty
         v-else
         icon="i-lucide-mail"
         title="No pending invitations"
+        description="You have not sent any invitations yet."
     />
 </template>

@@ -6,8 +6,8 @@ export default defineNuxtConfig({
         '@nuxt/eslint',
         '@nuxt/ui',
         '@vueuse/nuxt',
-        'nuxt-file-storage',
-        (process.env.NODE_ENV === 'production' ? 'nuxt-api-shield' : null)
+        'nuxt-file-storage'
+        // (process.env.NODE_ENV === 'production' ? 'nuxt-api-shield' : null)
     ],
 
     imports: {
@@ -55,5 +55,12 @@ export default defineNuxtConfig({
 
     fileStorage: {
         mount: './public/storage'
+    },
+
+    icon: {
+        customCollections: [{
+            prefix: 'custom',
+            dir: './app/assets/icons'
+        }]
     }
 })
