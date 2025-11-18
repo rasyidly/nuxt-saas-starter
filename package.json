@@ -15,9 +15,10 @@
 		"auth:db": "npx @better-auth/cli@latest generate --config ./modules/auth/runtime/server/utils/auth.ts --output ./server/database/schema/auth.ts --yes"
 	},
 	"dependencies": {
-		"@iconify-json/lucide": "^1.2.71",
-		"@iconify-json/simple-icons": "^1.2.56",
-		"@nuxt/ui": "^4.1.0",
+		"@iconify-json/lucide": "^1.2.73",
+		"@iconify-json/simple-icons": "^1.2.59",
+		"@nuxt/ui": "^4.2.0",
+		"@nuxtjs/i18n": "10.2.1",
 		"@vue-email/components": "^0.0.21",
 		"@vue-email/render": "^0.0.9",
 		"@vueuse/nuxt": "^14.0.0",
@@ -27,17 +28,17 @@
 		"h3-zod": "^0.5.3",
 		"mysql2": "^3.15.3",
 		"nuxt": "^4.2.0",
-		"nuxt-api-shield": "^0.8.4",
-		"resend": "^6.4.0"
+		"nuxt-api-shield": "^0.9.0",
+		"resend": "^6.5.0"
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^1.10.0",
-		"drizzle-kit": "^0.31.6",
+		"drizzle-kit": "^0.31.7",
 		"eslint": "^9.39.0",
 		"nuxt-file-storage": "^0.3.0",
 		"typescript": "^5.9.3",
 		"ulid": "^3.0.1",
-		"vue-tsc": "^3.1.2"
+		"vue-tsc": "^3.1.4"
 	},
 	"resolutions": {
 		"eslint": "9.37.0"
