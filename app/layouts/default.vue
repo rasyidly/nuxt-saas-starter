@@ -5,7 +5,8 @@ const sidebar = ref(false)
 const { auth, signOut } = useAuth()
 
 const top: NavigationMenuItem[][] = [[
-    { label: 'Overview', icon: 'i-lucide-home', to: '/' }
+    { label: 'Overview', icon: 'i-lucide-home', to: '/' },
+    { label: 'Ask AI', icon: 'i-lucide-bot', to: '/ai' }
 ], [
     {
         label: 'Settings', icon: 'i-lucide-settings', defaultOpen: true, children: [
@@ -103,6 +104,7 @@ const groups = computed(() => [{
                         variant="soft"
                         label="Ask Now"
                         class="w-min"
+                        to="/ai"
                     />
                 </UPageCard>
                 <UTooltip
@@ -110,6 +112,7 @@ const groups = computed(() => [{
                     text="Ask AI"
                     :delay-duration="0"
                     :content="{ side: 'right' }"
+                    to="/ai"
                 >
                     <UButton
                         icon="i-lucide-bot"

@@ -6,8 +6,9 @@ export default defineNuxtConfig({
         '@nuxt/eslint',
         '@nuxt/ui',
         '@vueuse/nuxt',
-        'nuxt-file-storage'
         // (process.env.NODE_ENV === 'production' ? 'nuxt-api-shield' : null)
+        'nuxt-file-storage',
+        '@nuxtjs/mdc'
     ],
 
     imports: {
@@ -29,7 +30,16 @@ export default defineNuxtConfig({
         public: {
             appUrl: process.env.NUXT_SITE_URL || 'http://localhost:3000',
             appName: process.env.NUXT_SITE_NAME || 'Nuxt Application'
-        }
+        },
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID || undefined,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || undefined
+        },
+        facebook: {
+            clientId: process.env.FACEBOOK_CLIENT_ID || undefined,
+            clientSecret: process.env.FACEBOOK_CLIENT_SECRET || undefined
+        },
+        openaiApiKey: process.env.NUXT_OPENAI_API_KEY || undefined
     },
 
     compatibilityDate: '2025-01-15',
