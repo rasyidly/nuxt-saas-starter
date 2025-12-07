@@ -28,3 +28,15 @@ export function formatDate(date: string | Date, format: string = 'DD MMM YYYY', 
         ...options
     }).value
 }
+
+export function slugify(text: string): string {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '')
+}

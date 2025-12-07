@@ -1,11 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
+@theme {
 	--font-sans: "Inter", sans-serif;
 	--font-sans--font-feature-settings: "ss01", "cv02", "cv03", "cv04", "cv06",
 		"cv10", "cv11";
+}
 
+@theme default {
 	--color-zinc-50: oklch(0.985 0 0);
 	--color-zinc-100: oklch(0.967 0.001 286.375);
 	--color-zinc-200: oklch(0.92 0.004 286.32);
@@ -19,12 +21,10 @@
 	--color-zinc-950: oklch(0.141 0.005 285.823);
 }
 
-@theme default {
-	--ui-radius: 0.375rem;
-	--ui-navbar-height: 4rem;
-}
-
 :root {
+	--ui-radius: 0.425rem;
+	--ui-header-height: --spacing(16);
+
 	font-family: var(--font-sans);
 	font-feature-settings: var(--font-sans--font-feature-settings);
 	font-variation-settings: var(--font-sans--font-variation-settings);

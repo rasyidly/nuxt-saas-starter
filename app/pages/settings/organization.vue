@@ -1,5 +1,5 @@
 <template>
-    <UContainer class="max-w-4xl lg:py-4 space-y-6 xl:space-y-12">
+    <UContainer class="px-0 max-w-4xl lg:py-4 space-y-6 xl:space-y-12">
         <UPageCard
             title="Organization Profile"
             description="Update your organization's profile information and logo."

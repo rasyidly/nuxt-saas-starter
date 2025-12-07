@@ -41,7 +41,6 @@ const fields: AuthFormField[] = [{
 }]
 
 async function onSubmit(payload: FormSubmitEvent<{ name: string, email: string, password: string, confirmPassword: string, acceptTerms: boolean }>) {
-    // Assuming client.signUp.email exists
     const { error } = await client.signUp.email({
         name: payload.data.name,
         email: payload.data.email,

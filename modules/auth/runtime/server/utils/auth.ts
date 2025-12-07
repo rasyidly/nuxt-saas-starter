@@ -74,15 +74,12 @@ export const auth = betterAuth({
                 html
             })
         },
-        disableSignUp: process.env.APP_SIGNUP_ENABLED !== 'true',
-        requireEmailVerification: process.env.NODE_ENV === 'production'
+        disableSignUp: false,
+        requireEmailVerification: false
     },
     telemetry: {
         enabled: false
     },
-    trustedOrigins: [
-        process.env.NUXT_SITE_URL || 'http://localhost:3000'
-    ],
     advanced: {
         database: {
             generateId: () => ulid()

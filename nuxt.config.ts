@@ -64,7 +64,7 @@ export default defineNuxtConfig({
     },
 
     fileStorage: {
-        mount: './public/storage'
+        mount: process.env.NUXT_STORAGE_PATH || './public/storage'
     },
 
     icon: {
