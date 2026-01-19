@@ -116,7 +116,7 @@ useHead({
                             :status="chat.status"
                             icon="i-lucide-send"
                             @stop="chat.stop"
-                            @reload="chat.regenerate"
+                            @reload="chat.regenerate()"
                         />
                     </UChatPrompt>
                 </UContainer>
